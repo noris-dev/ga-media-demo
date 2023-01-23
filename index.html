@@ -2,9 +2,123 @@
 <html>
 <head>
 	<title>Media Demo</title>
-    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0px;
+            padding: 0px;
+        }
+        li {
+            list-style: none;
+        }
+        p {
+            margin: 0px;
+        }
+        a {
+            text-decoration: unset;
+        }
+
+        .main {
+            background-color: #d9d9d9;
+        }
+
+        .filter_bar {
+            display: flex;
+            /* width: 100%; */
+            gap: 5px;
+            padding: 6px 6px;
+        }
+        .selectbox {
+            width: 45%;
+            color: #304CAB;
+        }
+        .selectbox-header {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 40px;
+            padding: 0px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            background: #f3f3f3;
+            border-radius: 5px;
+        }
+        .selectbox-body {
+            display: none;
+        }
+        .search_bar {
+            height: 40px;
+            width: 55%;
+            text-indent: 10px;
+        }
+
+        .header {
+            padding: 10px;
+            background-color: #1A1B34;
+        }
+        .header-logo {
+            width: 90px;
+        }
+
+        .giveaway_list ul {
+            padding: 0px 6px;
+            margin: 0;
+        }
+        .giveaway_list-item {
+            height: 120px;
+            margin: 5px 0px 0px 0px;
+            border-radius: 5px;
+            background: linear-gradient(102.51deg, #2366B6 0%, #43249A 100%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            cursor: pointer;
+        }
+        .giveaway_list-item:first-child {
+            margin: 0px;
+        }
+        .giveaway_list-item a {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+        .giveaway_list-item .giveaway_list-image {
+            background-color: #fff;
+            height: 100%;
+            flex-grow: 1;
+            border-radius: 5px 0px 0px 5px;
+        }
+        .giveaway_list-item .giveaway_list-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 15px;
+            width: 65%;
+            color: #fff;
+        }
+        .giveaway_list-item .giveaway_list-body .giveaway_list-entry {
+            text-align: right;
+            font-size: 14px;
+        }
+        .giveaway_list-item .giveaway_list-body .giveaway_list-entry span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .giveaway_list-user {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .giveaway_list-user span.user_icon {
+            display: inline-block;
+            height: 1.4em;
+            width: 1.4em;
+            margin-right: 6px;
+            background-color: #ccc;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -12,13 +126,65 @@
         <header class="header">
             <img src="./image/ailee_logo_text.png" class="header-logo">
         </header>
-        <div class="giveaway_list">
-            <ul>
-                <li class="giveaway_list-item">
-                    <div></div>
-                </li>
-            </ul>
-        </div>
+        <main class="main">
+            <div class="filter_bar">
+                <input type="text" class="search_bar">
+                <div class="selectbox">
+                    <div class="selectbox-header">
+                        <p>人気が高い順</p>
+                    </div>
+                    <ul class="selectbox-body">
+                        <li class="selectbox-option">人気が高い順</li>
+                        <li class="selectbox-option">応募数が多い順</li>
+                        <li class="selectbox-option">投稿が新しい順</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="giveaway_list">
+                <ul>
+                    <li class="giveaway_list-item">
+                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1">
+                            <div class="giveaway_list-image"></div>
+                            <div class="giveaway_list-body">
+                                <p class="giveaway_list-title">AILEE NFT #2512</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE</p>
+                                <p class="giveaway_list-entry"><span>623人</span>が応募中</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="giveaway_list-item">
+                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1">
+                            <div class="giveaway_list-image"></div>
+                            <div class="giveaway_list-body">
+                                <p class="giveaway_list-title">AILEE NFT #2512</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE</p>
+                                <p class="giveaway_list-entry"><span>623人</span>が応募中</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="giveaway_list-item">
+                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1">
+                            <div class="giveaway_list-image"></div>
+                            <div class="giveaway_list-body">
+                                <p class="giveaway_list-title">AILEE NFT #2512</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE</p>
+                                <p class="giveaway_list-entry"><span>623人</span>が応募中</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="giveaway_list-item">
+                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1">
+                            <div class="giveaway_list-image"></div>
+                            <div class="giveaway_list-body">
+                                <p class="giveaway_list-title">AILEE NFT #2512</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE</p>
+                                <p class="giveaway_list-entry"><span>623人</span>が応募中</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
 </body>
 </html>
