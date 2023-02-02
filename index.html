@@ -11,6 +11,7 @@
         html, body {
             margin: 0px;
             padding: 0px;
+            height: 100vh;
         }
         li {
             list-style: none;
@@ -22,9 +23,19 @@
             text-decoration: unset;
             color: unset;
         }
+        ::placeholder {
+            color: #646E7B
+        }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
         .main {
-            background-color: #1a1b34;
+            flex-grow: 1;
+            overflow: scroll;
+            background: radial-gradient(91.87% 57.69% at 9.32% -13.59%, rgba(0, 255, 163, 0.3) 0%, rgba(1, 99, 193, 0) 100%), radial-gradient(75.65% 47.51% at 93.26% 123.12%, rgba(0, 255, 163, 0.3) 0%, rgba(1, 99, 193, 0) 100%), #101827;
         }
 
         .filter_bar {
@@ -32,9 +43,14 @@
             /* width: 100%; */
             gap: 5px;
             padding: 6px 6px;
+            background-color: #101827;
+            z-index: 1;
+        }
+        .filter_bar .search_icon {
+            padding: 0px 10px;
         }
         .selectbox {
-            width: 45%;
+            width: 40%;
             color: #34354e;
         }
         .selectbox-header {
@@ -43,29 +59,58 @@
             flex-direction: row;
             align-items: center;
             height: 40px;
-            padding: 0px 10px;
+            padding: 0px 15px;
             font-size: 14px;
-            font-weight: bold;
-            background: #f3f3f3;
+            font-weight: lighter;
             border-radius: 5px;
-            color: #1A1B34;
+            color: #fff;
         }
         .selectbox-body {
             display: none;
         }
+        .search_box {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 6px 5px;
+
+            width: 416px;
+            height: 51px;
+
+            border: 1px solid #334062;
+            border-radius: 10px;
+        }
         .search_bar {
-            height: 40px;
-            width: 55%;
-            text-indent: 10px;
+            -webkit-appearance: none;
+            border-radius: 0;
+            border: none;
+            border-right: solid 1px #334062;
+            background: #10182700;
+            /* text-indent: 1em; */
+            flex-grow: 1;
+            color: #ffffff;
+        }
+        .search_bar:focus {
+            /* border: solid 1px #646E7B; */
+            outline: none;
+            box-shadow: 0px 1px 1px 0 #334062;
         }
 
         .header {
             padding: 10px;
-            background-color: #1A1B34;
+            background-color: #0C131F;
+            display: flex;
+            flex-direction: row;
+            /* justify-content: center; */
+            align-items: center;
         }
         .header-logo {
-            width: 90px;
+            height: 90%;
             margin-left: 10px;
+        }
+
+        .giveaway_list {
         }
 
         .giveaway_list ul {
@@ -75,11 +120,10 @@
         .giveaway_list-item {
             position: relative;
             height: 140px;
-            margin: 5px 0px 0px 0px;
+            margin: 8px 0px 0px 0px;
             border-radius: 5px;
-            /*background: linear-gradient(102.51deg, #2366B6 0%, #43249A 100%);*/
-            background: #fff;
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            background: rgba(21, 28, 46, 0.6);
+            filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .9));
             cursor: pointer;
             font-size: 14px;
         }
@@ -133,7 +177,7 @@
             align-items: flex-end;
             padding: 10px 15px;
             width: 65%;
-            color: #1a1b34;
+            color: #fff;
         }
         .giveaway_list-item .giveaway_list-body .giveaway_list-title {
             /* font-weight: bold; */
@@ -149,7 +193,7 @@
             border-radius: 2px;
         }
         .giveaway_list-item .giveaway_list-body .giveaway_list-entry span {
-            font-weight: bold;
+            /* font-weight: bold; */
             margin-right: 5px;
         }
         .giveaway_list-user {
@@ -158,7 +202,7 @@
             align-items: center;
             margin-top: 2px;
             padding: 3px 6px;
-            background: #f1f1f1;
+            background: #19233C;
             border-radius: 5px;
             font-size: 14px;
         }
@@ -179,20 +223,21 @@
         <header class="header">
             <img src="./image/ailee_logo_text.png" class="header-logo">
         </header>
-        <main class="main">
-            <div class="filter_bar">
-                <input type="text" placeholder="キーワードで検索" class="search_bar">
-                <div class="selectbox">
-                    <div class="selectbox-header">
-                        <a href="#">人気が高い順</a>
-                    </div>
-                    <ul class="selectbox-body">
-                        <li class="selectbox-option">人気が高い順</li>
-                        <li class="selectbox-option">応募数が多い順</li>
-                        <li class="selectbox-option">投稿が新しい順</li>
-                    </ul>
+        <div class="filter_bar">
+            <img src="./image/search_icon.svg" class="search_icon">
+            <input type="text" placeholder="キーワードで検索" class="search_bar">
+            <div class="selectbox">
+                <div class="selectbox-header">
+                    <a href="#">人気が高い順</a>
                 </div>
+                <ul class="selectbox-body">
+                    <li class="selectbox-option">人気が高い順</li>
+                    <li class="selectbox-option">応募数が多い順</li>
+                    <li class="selectbox-option">投稿が新しい順</li>
+                </ul>
             </div>
+        </div>
+        <main class="main">
             <div class="giveaway_list">
                 <ul>
                     <li class="giveaway_list-item">
