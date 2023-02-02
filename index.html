@@ -40,13 +40,20 @@
 
         .filter_bar {
             display: flex;
+            flex-direction: column;
             /* width: 100%; */
             gap: 5px;
             padding: 6px 6px;
             background-color: #101827;
             z-index: 1;
         }
-        .filter_bar .search_icon {
+        .search_area {
+            border: solid 1px #334062;
+            border-radius: 10px;
+            display: flex;
+            width: 100%;
+        }
+        .search_area .search_icon {
             padding: 0px 10px;
         }
         .selectbox {
@@ -212,10 +219,38 @@
             height: 1.4em;
             width: 1.4em;
             margin-right: 6px;
-/*            background-color: #ccc;*/
             background-image: url('./image/ailee_tw_icon.jpeg');
             background-size: cover;
             border-radius: 20px;
+        }
+
+        .tab_list {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+        }
+        .tab_list-item {
+            display: flex;
+            width: 100%;
+            gap: 12px;
+            color: #D2D9EA;
+            padding: 8px 0px;
+            align-items: center;
+            justify-content: center;
+        }
+        .tab_list-item.is-active {
+            background: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%), #3F75FF;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+
+
+            border-bottom: 2px solid;
+            border-image: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%);
+            border-image-slice: 1;
+            padding: 8px 0px 6px 0px;
         }
     </style>
 </head>
@@ -225,18 +260,25 @@
             <img src="./image/ailee_logo_text.png" class="header-logo">
         </header>
         <div class="filter_bar">
-            <img src="./image/search_icon.svg" class="search_icon">
-            <input type="text" placeholder="キーワードで検索" class="search_bar">
-            <div class="selectbox">
-                <div class="selectbox-header">
-                    <a href="#">人気が高い順</a>
+            <div class="search_area">
+                <img src="./image/search_icon.svg" class="search_icon">
+                <input type="text" placeholder="キーワードで検索" class="search_bar">
+                <div class="selectbox">
+                    <div class="selectbox-header">
+                        <a href="#">人気が高い順</a>
+                    </div>
+                    <ul class="selectbox-body">
+                        <li class="selectbox-option">人気が高い順</li>
+                        <li class="selectbox-option">応募数が多い順</li>
+                        <li class="selectbox-option">投稿が新しい順</li>
+                    </ul>
                 </div>
-                <ul class="selectbox-body">
-                    <li class="selectbox-option">人気が高い順</li>
-                    <li class="selectbox-option">応募数が多い順</li>
-                    <li class="selectbox-option">投稿が新しい順</li>
-                </ul>
             </div>
+            <ul class="tab_list">
+                <li class="tab_list-item is-active">すべて</li>
+                <li class="tab_list-item"><img src="./image/tab_icon_nft.svg" class="tab_list-icon">NFT</li>
+                <li class="tab_list-item"><img src="./image/tab_icon_al.svg" class="tab_list-icon">Allow List</li>
+            </ul>
         </div>
         <main class="main">
             <div class="giveaway_list">
