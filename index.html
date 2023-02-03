@@ -102,7 +102,7 @@
         .search_bar:focus {
             /* border: solid 1px #646E7B; */
             outline: none;
-            box-shadow: 0px 1px 1px 0 #334062;
+            /* box-shadow: 0px 1px 1px 0 #334062;*/
         }
 
         .header {
@@ -110,7 +110,7 @@
             background-color: #0C131F;
             display: flex;
             flex-direction: row;
-            /* justify-content: center; */
+             justify-content: space-between; 
             align-items: center;
         }
         .header-logo {
@@ -151,7 +151,7 @@
             font-size: 12px;
             font-weight: bold;
             color: #fff;
-            background: linear-gradient(86.17deg, #00FFA3 -152.92%, #0184C7 91.05%), #00AE99;
+            background: linear-gradient(86.17deg, #00FFA3 -152.92%, #006ea6 91.05%), #00AE99;
             border-radius: 0px 0px 10px 0px;
         }
         .giveaway_list-item .giveaway_list-image {
@@ -201,9 +201,11 @@
             color: #fff;
             border-radius: 2px;
         }
-        .giveaway_list-item .giveaway_list-body .giveaway_list-entry span {
-            /* font-weight: bold; */
-            margin-right: 5px;
+        .giveaway_list-item .giveaway_list-body .giveaway_list-entry.NFT {
+            background: #0076B1;
+        }
+        .giveaway_list-item .giveaway_list-body .giveaway_list-entry.AL {
+            background: #aa216b;
         }
         .giveaway_list-user {
             display: flex;
@@ -214,6 +216,7 @@
             background: #19233C;
             border-radius: 5px;
             font-size: 14px;
+            width: 100%;
         }
         .giveaway_list-user span.user_icon {
             display: inline-block;
@@ -225,6 +228,7 @@
             border-radius: 20px;
         }
 
+        /* タブ */
         .tab_list {
             display: flex;
             flex-direction: row;
@@ -236,28 +240,244 @@
             width: 100%;
             gap: 12px;
             color: #989fb1;
-            padding: 10px 0px;
+            padding: 12px 0px;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
         }
         .tab_list-item.is-active {
+            color: #fff;
+            /*background: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%), #3F75FF;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;*/
+
+            border-bottom: 2px solid;
+            border-image: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%);
+            border-image-slice: 1;
+            padding: 12px 0px 10px 0px;
+        }
+
+        /*スマホ版グローバルメニュー*/
+        .global_menu_sp-trigger {
+            z-index: 5;
+        }
+
+        .openbtn1 {
+            float: right;
+            position: relative;
+            cursor: pointer;
+            width: 30px;
+            height:20px;
+            border-radius: 5px;
+            /* margin: 10px 10px 0px 0px;*/
+        }
+
+        /*ボタン内側*/
+        .openbtn1 span{
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            height: 2px;
+            border-radius: 2px;
+            width: 100%;
+            transition: all .3s;
+
             background: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%), #3F75FF;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-
             border-bottom: 2px solid;
             border-image: linear-gradient(87.37deg, #00FFA3 -92.49%, #0184C7 93.11%);
             border-image-slice: 1;
-            padding: 10px 0px 8px 0px;
         }
+        .openbtn1 span:nth-of-type(1) {
+/*            background: #00b0bf;*/
+            top:0px; 
+        }
+        .openbtn1 span:nth-of-type(2) {
+            top:10px;
+        }
+        .openbtn1 span:nth-of-type(3) {
+            top:20px;
+        }
+
+        .openbtn1.active span:nth-of-type(1) {
+            top: 2px;
+            left: -2px;
+            transform: translateY(6px) rotate(-45deg);
+            width: 100%;
+            background: #fff;
+        }
+        .openbtn1.active span:nth-of-type(2) {
+          opacity: 0;/*真ん中の線は透過*/
+        }
+        .openbtn1.active span:nth-of-type(3){
+            top: 14px;
+            left: -2px;
+            transform: translateY(-6px) rotate(45deg);
+            width: 100%;
+            background: #fff;
+        }
+        .global_menu_sp {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(91.87% 57.69% at 9.32% -13.59%, rgba(0, 255, 163, 0.1) 0%, rgba(1, 99, 193, 0) 100%), radial-gradient(75.65% 47.51% at 93.26% 123.12%, rgba(0, 255, 163, 0.1) 0%, rgba(1, 99, 193, 0) 100%), #0C131Ff9;
+            z-index: 5;
+            opacity: 0;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .global_menu-list_sp {
+            color: #fff;
+        }
+        .global_menu-item_sp {
+            display: flex;
+            width: 290px;
+            padding: 14px 0px 14px 30px;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-top: 40px;
+            font-size: 18px;
+            text-align: left;
+            gap: 18px;
+        }
+        .global_menu-item_sp img {
+                width: 24px;
+        }
+        .global_menu-item_sp:first-child {
+            margin-top: 0px;
+        }
+        .global_menu-item_sp:hover {
+            color: #00b0bf;
+            /*background: #00b0bf55;*/
+            /*box-shadow: -3px 0px 0px 0px #fff;*/
+        }
+        .global_menu_sp.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* アニメーション */
+        .fadeIn {
+            animation-name: fadeInAnime;/*アニメーションの定義名*/
+            animation-duration: 1s;/*アニメーション変化時間 ※デフォルト*/
+            animation-fill-mode: forwards;/*アニメーションの開始と終了時の状態を指定*/
+            opacity:0;
+        }
+        .fadeUp {
+            animation-name: fadeUpAnime;/*アニメーションの定義名*/
+            animation-duration: 1s;/*アニメーション変化時間 ※デフォルト*/
+            animation-fill-mode: forwards;/*アニメーションの開始と終了時の状態を指定*/
+            opacity:0;
+        }
+        .fadeSlideLeft {
+            animation-name: fadeSlideLeftAnime;/*アニメーションの定義名*/
+            animation-duration: 1s;/*アニメーション変化時間 ※デフォルト*/
+            animation-fill-mode: forwards;/*アニメーションの開始と終了時の状態を指定*/
+            opacity:0;
+        }
+        .fadeSlideRight {
+            animation-name: fadeSlideRightAnime;/*アニメーションの定義名*/
+            animation-duration: 1s;/*アニメーション変化時間 ※デフォルト*/
+            animation-fill-mode: forwards;/*アニメーションの開始と終了時の状態を指定*/
+            opacity:0;
+        }
+        @keyframes fadeInAnime{
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeUpAnime{
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeSlideLeftAnime{
+            from {
+                opacity: 0;
+                transform: translateX(150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeSlideRightAnime{
+            from {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .change-time05{
+          animation-duration: 1.0s;
+        }
+
+        .change-time1{
+          animation-duration: 1.5s;
+        }
+
+        .change-time15{
+          animation-duration: 2.5s;
+        }
+
+
+        .global_menu-item_sp:nth-child(1) {
+            animation-duration: .2s;
+        }
+        .global_menu-item_sp:nth-child(2) {
+            animation-duration: .4s;
+        }
+        .global_menu-item_sp:nth-child(3) {
+            animation-duration: .6s;
+        }
+        .global_menu-item_sp:nth-child(4) {
+            animation-duration: .8s;
+        }
+        .global_menu-item_sp:nth-child(5) {
+            animation-duration: 1s;
+        }
+
     </style>
 </head>
 <body>
+    <div id="js-globalMenuSP" class="global_menu_sp">
+        <ul class="global_menu-list_sp">
+            <li class="global_menu-item_sp js-globalMenuSPItem" data="top"><img src="./image/menu_icon_search.svg">GIVEAWAYを探す</li>
+            <li class="global_menu-item_sp js-globalMenuSPItem" data="service"><img src="./image/menu_icon_policy.svg">利用規約</li>
+            <li class="global_menu-item_sp js-globalMenuSPItem" data="news"><img src="./image/menu_icon_company.svg">会社情報</li>
+            <li class="global_menu-item_sp js-globalMenuSPItem" data="company"><img src="./image/menu_icon_email.svg">お問い合わせ</li>
+        </ul>
+    </div>
     <div class="container">
         <header class="header">
             <img src="./image/ailee_logo_text.png" class="header-logo">
+            <div id="js-globalMenuSPTrigger" class="global_menu_sp-trigger openbtn1"><span></span><span></span><span></span>
         </header>
         <div class="filter_bar">
             <div class="search_area">
@@ -274,10 +494,10 @@
                     </ul>
                 </div>
             </div>
-            <ul class="tab_list">
-                <li class="tab_list-item is-active">すべて</li>
-                <li class="tab_list-item"><img src="./image/tab_icon_nft.svg" class="tab_list-icon">NFT</li>
-                <li class="tab_list-item"><img src="./image/tab_icon_al.svg" class="tab_list-icon">Allow List</li>
+            <ul id="js-categoryTab" class="tab_list">
+                <li class="tab_list-item js-categoryTabItem is-active">すべて</li>
+                <li class="tab_list-item js-categoryTabItem"><img src="./image/tab_icon_nft.svg" class="tab_list-icon">NFT</li>
+                <li class="tab_list-item js-categoryTabItem"><img src="./image/tab_icon_al.svg" class="tab_list-icon">Allow List</li>
             </ul>
         </div>
         <main class="main">
@@ -288,11 +508,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i1"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">100RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -301,11 +519,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i2"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -313,11 +529,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i3"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">350RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -326,11 +540,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i4"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">1200RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -338,11 +550,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i5"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -350,11 +560,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i6"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">0RT</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -363,11 +571,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i1"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">100RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -376,11 +582,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i2"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -388,11 +592,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i3"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">350RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -401,11 +603,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i4"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">1200RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -413,11 +613,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i5"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -425,11 +623,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i6"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">0RT</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -438,11 +634,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i1"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">100RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -451,11 +645,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i2"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -463,11 +655,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i3"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">350RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -476,11 +666,9 @@
                             <span class="popular_tag">人気</span>
                             <div class="giveaway_list-image i4"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">1200RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -488,11 +676,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i5"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry NFT">NFT</p>
                             </div>
                         </a>
                     </li>
@@ -500,161 +686,9 @@
                         <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
                             <div class="giveaway_list-image i6"></div>
                             <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">0RT</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i1"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">100RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i2"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i3"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">350RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i4"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">1200RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i5"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i6"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">0RT</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i1"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">100RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i2"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i3"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">350RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <span class="popular_tag">人気</span>
-                            <div class="giveaway_list-image i4"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">1200RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i5"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">250RT↑</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="giveaway_list-item">
-                        <a href="https://twitter.com/AILEE_NFT/status/1617525648607842304/photo/1" target="_blank">
-                            <div class="giveaway_list-image i6"></div>
-                            <div class="giveaway_list-body">
-                                <div>
-                                    <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
-                                    <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
-                                </div>
-                                <p class="giveaway_list-entry">0RT</p>
+                                <p class="giveaway_list-title">アンセム完売記念、ANTHEM NFTを1名にプレゼント。フォロー&RTで応募</p>
+                                <p class="giveaway_list-user"><span class="user_icon"></span>AILEE（エイリー） ANT...</p>
+                                <p class="giveaway_list-entry AL">Allow List</p>
                             </div>
                         </a>
                     </li>
@@ -662,5 +696,36 @@
             </div>
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // タブ移動
+        const $categoryTab = $('#js-categoryTab');
+        const $categoryTabItem = $categoryTab.find('.js-categoryTabItem');
+        const activeClassName = 'is-active';
+
+        // グローバルメニュー
+        let $globalMenuSP = $('#js-globalMenuSP');
+        let $globalMenuSPTrigger = $('#js-globalMenuSPTrigger');
+
+        // タブ移動
+        $categoryTabItem.on('click', function() {
+            let index = $categoryTabItem.index($(this));
+
+            $categoryTabItem.removeClass(activeClassName);
+            $categoryTabItem.eq(index).addClass(activeClassName);
+        });
+
+        // グローバルメニュー開閉
+        $globalMenuSPTrigger.on('click', function() {
+            $(this).toggleClass('active');
+            $globalMenuSP.toggleClass('active');
+            $globalMenuSP.find('.js-globalMenuSPItem').toggleClass('fadeSlideRight');
+        });
+        $globalMenuSP.on('click', function() {
+            $(this).toggleClass('active');
+            $globalMenuSPTrigger.toggleClass('active');
+            $globalMenuSP.find('.js-globalMenuSPItem').toggleClass('fadeSlideRight');
+        });
+    </script>
 </body>
 </html>
